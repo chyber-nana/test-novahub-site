@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaHub || Custom Request</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="customBody">
+        <!-- !NAVBAR -->
+        <nav class="navbar">
+            <div class="nav--container">
+                <div class="nav--content">
+                    <div class="lodo--container">
+                        <!-- <span>[Logo Goes Here]</span> -->
+                    </div>
+                    <div class="name--text"><a href="index.html">NovaHub</a></div>
+                    <div class="buttons">
+                        <button class="socials">Socials</button>
+                    </div>
+                </div>
+            </div>
+         </nav>
+        <!-- !NAVBAR -->
+    <main>
+            <img src="./Images/gamepad (1).png" alt="A gamepad">
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <h1>Request Here!</h1>
+        <input type="hidden" name="access_key" value="892ff590-11db-47d1-85ed-640923155c90">
+        <div>
+            <label for="name">Your Name</label>
+        <input type="text" name="name" id="name" placeholder="What should we call you?" required>
+        </div>
+        <div>
+            <label for="email">Your Email</label>
+        <input type="email" name="email" id="email" placeholder="Where can we reach you?" required>
+        </div>
+        <div>
+            <label for="message">Your message</label>
+        <textarea name="message" id="message" placeholder="Tell us what you want here!"></textarea>
+        </div>
+        
+        <button type="submit">Submit Form</button>
+    
+    </form>
+    </main>
+
+</body>
+</html>
