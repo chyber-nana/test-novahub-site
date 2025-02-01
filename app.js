@@ -6,6 +6,12 @@ const cart = document.getElementById("cart")
 const foreignPageAddButtons = document.querySelectorAll("#foreign--add")
 const notificationPopup = document.querySelector(".notification")
 const playText = document.querySelectorAll(".start")
+const socialsButton = document.getElementById("socials--button")
+const socialsPage = document.querySelector(".socials--page--hidden")
+const socialsCloseButton = document.getElementById("socials--close--button")
+const cartButton = document.getElementById("cart--button")
+const cartCloseButton = document.getElementById("cart--close--button")
+const itemsHidden = document.querySelector(".item--list--hidden")
 let currentPage = null
 let shrinkedPage = null
 let productNumber = 0
@@ -86,8 +92,7 @@ expandShrinkButton.addEventListener("click", () => {
 
 const updateCart = (list) => {
     if (list.length === 0) {
-        cart.innerHTML = `<span id="info">Products added will be shown here</span>
-        <button class="send--button">Order</button>`
+        cart.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px"><path d="M 1.25 3 A 1.250125 1.250125 0 1 0 1.25 5.5 L 1.796875 5.5 C 1.9214018 5.5 2.0141793 5.574019 2.0410156 5.6953125 L 4.4316406 16.455078 C 4.760148 17.935789 6.0875402 19 7.6035156 19 L 18.75 19 A 1.250125 1.250125 0 1 0 18.75 16.5 L 7.6035156 16.5 C 7.2454911 16.5 6.9505395 16.263353 6.8730469 15.914062 A 1.250125 1.250125 0 0 0 6.8730469 15.912109 L 6.6699219 15 L 18.328125 15 C 19.856899 15 21.19278 13.918188 21.509766 12.423828 L 22.972656 5.5097656 A 1.250125 1.250125 0 0 0 21.75 4 L 3.9082031 4 C 3.3967732 3.3868132 2.6317903 3 1.796875 3 L 1.25 3 z M 4.7792969 6.5 L 20.207031 6.5 L 19.0625 11.904297 C 18.987486 12.257937 18.689351 12.5 18.328125 12.5 L 6.1132812 12.5 L 4.7792969 6.5 z M 8.5 20 A 1.5 1.5 0 0 0 8.5 23 A 1.5 1.5 0 0 0 8.5 20 z M 17.5 20 A 1.5 1.5 0 0 0 17.5 23 A 1.5 1.5 0 0 0 17.5 20 z"/></svg>`
     } else {
         document.getElementById("productsContent").innerHTML = ""
         // document.getElementById("info").innerHTML = "none"
@@ -191,7 +196,21 @@ const animateText = (infoText) => {
 
 setInterval(animateText(playText), t);
 
+socialsButton.addEventListener("click", () => {
+    socialsPage.classList.add("socials--page--show")
+})
 
+socialsCloseButton.addEventListener("click", () => {
+    socialsPage.classList.remove("socials--page--show")
+})
+
+cartButton.addEventListener("click", () => {
+    itemsHidden.classList.add("item--list--show")
+})
+
+cartCloseButton.addEventListener("click", () => {
+    itemsHidden.classList.remove("item--list--show")
+})
 
 
 // addButton.addEventListener("click", () => {
