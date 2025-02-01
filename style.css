@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Monoton&family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Monoton&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Monoton&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
     --bgColor: #c8c7c7;
     /* --bgColor: #761682; */
@@ -47,6 +50,7 @@ body {
     justify-content: flex-end;
     position: relative;
     overflow-x: hidden;
+    overflow: hidden;
     z-index: -15;
 }
 
@@ -811,8 +815,8 @@ button[type="submit"] {
 
 
 .cart {
-    width: 600px;
-    height: 70px;
+    width: 100%;
+    height: 50px;
     max-height: 70px;
     background-color: transparent;
     display: flex;
@@ -822,26 +826,13 @@ button[type="submit"] {
     color: grey;
     text-align: center;
     font-family: "Poppins";
-    position: relative;
-    top: 2rem;
-    background: var(--background); 
-    background: var(--background2);
-    background: var(--background3);
 }
 
-.cart::before {
-    border-radius: 12px;
-    z-index: -1;
-    content: "";
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    position: absolute;
-    left: -2px;
-    top: -2px;
-    background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #fdfff1, #ffffff);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #fdfff1, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
-
+.cart svg {
+    fill: #fff;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
 }
 
 .cart .container {
@@ -850,113 +841,20 @@ button[type="submit"] {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
 }
 
 .cart .container .content {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    position: absolute;
-    z-index: 100;
-    color: var(--accentColor);
-}
-
-#cart  button {
-    height: 100%;
-    width: 100px;
-    border: none;
-    border-radius: 0 12px 12px 0;
-    background-color: #4c4c4c;
-    color: var(--accentColor);
-    font-size: 1.3rem;
-    cursor: not-allowed;
-    position: absolute;
-    right: 0;
-}
-
-button#order {
-    cursor: pointer;
-    height: 80%;
-    margin-right: 5px;
-    width: 100px;
-    border: none;
-    border-radius: 12px;
-    color: var(--accentColor);
-    font-size: 1.3rem;
-    background: #52dfff;
-    box-shadow: 0 0 19px rgba(113, 158, 186, 0.95);
-}
-
-
-
-.cart .container .content .dummy--product {
-    color: var(--accentColor);
-    width: fit-content;
-    max-width: 100px;
-    display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
-    height: 12px;
-    width: max-content;
-    border-radius: 20px;
-    background-color: #9d9299;
-    padding: 12px;
-    font-size: 10px;
-}
-
-.cart .container .content span {
-    font-size: 15px;
-}
-
-#cancelButton {
-    fill: var(--accentColor);
-    cursor: pointer;
-}
-
-#cancelButton:hover {
-    transition: all .35s;
-    fill: red;
+    justify-content: flex-end;
+    color: var(--accentColor);
 }
 
 svg {
     fill: var(--svgColor);
-}
-
-#add {
-    position: fixed;
-    top: calc(100vh - 150px);
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    border: none;
-    background-color: #c471ed;
-    cursor: pointer;
-    z-index: 100;
-}
-
-#remove {
-    position: fixed;
-    top: calc(100vh - 150px);
-    right: 50%;
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    border: none;
-    background-color: #ed7171;
-    cursor: pointer;
-}
-
-#productsContent {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
 }
 
 
@@ -1139,4 +1037,159 @@ svg {
     place-items: center;
     padding: 12px;   
     transform: display .35s ease-in-out;
+}
+
+.socials--page--hidden {
+    font-family: 'Roboto';
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: #3b3d3d93;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: z-index .35s ease-in-out;
+    display: none;
+}
+
+.socials--page--show {
+    font-family: 'Roboto';
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: #3b3d3d93;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: z-index .35s ease-in-out;
+}
+
+.socials--page--show .socials--container {
+    border-radius: 20px;
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    position: absolute;
+    top: calc(50vh - 300px/2);
+    left: calc(50% - 300px/2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
+    background-color: #1F201F;
+}
+
+.socials--page--show .socials--container .socials--content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+#socials--close--button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+#socials--close--button:hover {
+    stroke: red;
+    fill: red;
+    stroke-width: 2.5px;
+    transition: all .35s ease-in-out;
+}
+
+.socials--page--hidden svg {
+    fill: #fff;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+
+.socials--page--hidden svg:hover {
+    fill: #ff6e7f;
+    transform: scale(1.1);
+    transition: all .35s ease-in-out;
+}
+
+.item--list--hidden {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: #3b3d3d93;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: z-index .35s ease-in-out;
+    display: none;
+}
+
+.item--list--show {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: #3b3d3d93;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: z-index .35s ease-in-out;
+}
+
+.item--list--show .items--container {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: calc(50vh - 250px);
+    left: calc(50% - 250px);
+    background-color: #1F201F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+}
+
+.item--list--show .items--container .items--content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#cart--close--button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+#cart--close--button:hover {
+    stroke: red;
+    fill: red;
+    stroke-width: 2.5px;
+    transition: all .35s ease-in-out;
 }
