@@ -104,16 +104,20 @@
         <div class="main--container">
             <div class="main--content">
                 <!-- !NAVBAR -->
-        <nav class="navbar">
+        <nav class="navbar" id="navbar">
             <div class="nav--container">
                 <div class="nav--content">
+                    <div class="menu--button--hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" id="menu--button"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px" id="menu--close--button" stroke="#fff" stroke-width="1"><path d="M 19.990234 2.9863281 A 1.0001 1.0001 0 0 0 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 A 1.0001 1.0001 0 0 0 3.9902344 2.9902344 A 1.0001 1.0001 0 0 0 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 A 1.0001 1.0001 0 1 0 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 A 1.0001 1.0001 0 1 0 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 A 1.0001 1.0001 0 0 0 19.990234 2.9863281 z"/></svg>
+                    </div>
                     <div class="logo--container">
                         <!-- <span>[Logo Goes Here]</span> -->
                     </div>
                     <div class="name--text"><a href="index.html">NovaHub</a></div>
                     <div class="buttons">
                         <button class="socials" id="socials--button">Socials</button>
-                        <a href="customreq.html"><button class="customreq">Custom request</button></a>
+                        <a href="customreq.html"><button class="customreq">Custom</button></a>
                     </div>
                 </div>
             </div>
@@ -124,9 +128,10 @@
         <div id="main">
             <div class="section welcome--page">
                 <div class="cart">
-                    <div class="container">
+                    <div class="container" id="cart--container">
+                        <span class="cart--counter" id="counter">0</span>
                         <div class="content" id="cart">
-                            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px" id="cart--button"><path d="M 1.25 3 A 1.250125 1.250125 0 1 0 1.25 5.5 L 1.796875 5.5 C 1.9214018 5.5 2.0141793 5.574019 2.0410156 5.6953125 L 4.4316406 16.455078 C 4.760148 17.935789 6.0875402 19 7.6035156 19 L 18.75 19 A 1.250125 1.250125 0 1 0 18.75 16.5 L 7.6035156 16.5 C 7.2454911 16.5 6.9505395 16.263353 6.8730469 15.914062 A 1.250125 1.250125 0 0 0 6.8730469 15.912109 L 6.6699219 15 L 18.328125 15 C 19.856899 15 21.19278 13.918188 21.509766 12.423828 L 22.972656 5.5097656 A 1.250125 1.250125 0 0 0 21.75 4 L 3.9082031 4 C 3.3967732 3.3868132 2.6317903 3 1.796875 3 L 1.25 3 z M 4.7792969 6.5 L 20.207031 6.5 L 19.0625 11.904297 C 18.987486 12.257937 18.689351 12.5 18.328125 12.5 L 6.1132812 12.5 L 4.7792969 6.5 z M 8.5 20 A 1.5 1.5 0 0 0 8.5 23 A 1.5 1.5 0 0 0 8.5 20 z M 17.5 20 A 1.5 1.5 0 0 0 17.5 23 A 1.5 1.5 0 0 0 17.5 20 z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px" id="cartButton"><path d="M 1.25 3 A 1.250125 1.250125 0 1 0 1.25 5.5 L 1.796875 5.5 C 1.9214018 5.5 2.0141793 5.574019 2.0410156 5.6953125 L 4.4316406 16.455078 C 4.760148 17.935789 6.0875402 19 7.6035156 19 L 18.75 19 A 1.250125 1.250125 0 1 0 18.75 16.5 L 7.6035156 16.5 C 7.2454911 16.5 6.9505395 16.263353 6.8730469 15.914062 A 1.250125 1.250125 0 0 0 6.8730469 15.912109 L 6.6699219 15 L 18.328125 15 C 19.856899 15 21.19278 13.918188 21.509766 12.423828 L 22.972656 5.5097656 A 1.250125 1.250125 0 0 0 21.75 4 L 3.9082031 4 C 3.3967732 3.3868132 2.6317903 3 1.796875 3 L 1.25 3 z M 4.7792969 6.5 L 20.207031 6.5 L 19.0625 11.904297 C 18.987486 12.257937 18.689351 12.5 18.328125 12.5 L 6.1132812 12.5 L 4.7792969 6.5 z M 8.5 20 A 1.5 1.5 0 0 0 8.5 23 A 1.5 1.5 0 0 0 8.5 20 z M 17.5 20 A 1.5 1.5 0 0 0 17.5 23 A 1.5 1.5 0 0 0 17.5 20 z"/></svg>
                         </div>
                     </div>
                 </div>
@@ -295,14 +300,9 @@
             <div class="items--content">
                 <h1>Items Added</h1>
                 <ul class="items">
-                    <li class="item">
-                        <div class="item--content">
-                            <!-- <img src="./Images/t-mobileee.jpeg" alt="T-mobile sims"> -->
-                            <span class="item--name">T-Mobile SIM</span>
-                            <span class="item--price">£10</span>
-                        </div>
-                    </li>
+                    <span class="empty--message">List is Empty</span>
                 </ul>
+                <button class="order" id="order">Order</button>
             </div>
         </div>
     </div>
