@@ -34,6 +34,7 @@
 html {
     box-sizing: border-box;
     scroll-behavior: smooth;
+    width: 100%;
 }
 
 body {
@@ -49,9 +50,11 @@ body {
     align-items: center;
     justify-content: flex-end;
     position: relative;
-    overflow-x: hidden;
+    /* overflow-y: hidden; */
     overflow: hidden;
-    z-index: -15;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
 }
 
 button {
@@ -71,8 +74,6 @@ ul {
 nav.navbar {
     width: 100%;
     height: 4rem;
-    border-radius: 20px;
-    margin-right: 15px;
     background: #1F201F;
     display: flex;
     flex-direction: row;
@@ -98,11 +99,7 @@ nav.navbar .nav--container .nav--content {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
-}
-
-nav.navbar .nav--container .nav--content .logo--container {
-    margin-left: 5rem;
+    justify-content: space-between;
 }
 
 
@@ -115,7 +112,7 @@ nav.navbar .nav--container .nav--content .name--text {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .name--text a {
@@ -127,11 +124,12 @@ nav.navbar .nav--container .nav--content .name--text {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
+    margin-left: 10%;
 }
 
 
 .buttons {
-    width: 50%;
+    width: 40%;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -200,11 +198,11 @@ nav.navbar .nav--container .nav--content .name--text {
 body .sidebar {
     width: 25%;
     min-width: calc(250px * 100vw);
-    height: 100%;
+    height: 100vh;
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 100;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -215,14 +213,14 @@ body .sidebar {
 
 body #mainPage {
     position: relative;
-    top: 0;
-    left: 0;
-    width: 95%;
+    /* top: 0;
+    left: 0; */
+    width: 98%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     z-index: -10;
     /* background-image: url("./Images/bg pic.png");
     background-size: contain;
@@ -304,7 +302,7 @@ body .smallbar {
     width: 5%;
     min-width: 50px;
     max-width: 5%;
-    height: 100%;
+    height: 100vh;
     position: fixed;
     z-index: 100;
     display: flex;
@@ -314,7 +312,6 @@ body .smallbar {
     justify-content: center;
     transition: all .35s ease-in-out;
     justify-self: flex-start;
-    z-index: 5;
     box-shadow: 5px 0 15px rgba(255, 255, 255, 0.6);
 }
 
@@ -423,14 +420,14 @@ h1 {
 }
 
 #main .welcome--page {
-    position: relative;
+    /* position: relative; */
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    z-index: -1;
+    justify-content: flex-end;
+    /* z-index: -1; */
     top: 0;
     box-shadow: 0 100px 55px rgba(255, 255, 255, .5);
 }
@@ -445,7 +442,7 @@ h1 {
 }
 
 #main .welcome--page .container .content {
-    width: 100%;
+    width: 90%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -828,49 +825,70 @@ button[type="submit"] {
     font-family: "Poppins";
 }
 
-.cart svg {
-    fill: #fff;
-    cursor: pointer;
-    height: 50px;
-    width: 50px;
-}
 
-.cart .container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.cart .container .content {
+.cart .container#cart--container {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    color: var(--accentColor);
+}
+
+.cart .container .content#cart {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* color: var(--accentColor); */
+    margin-right: 50px;
+    position: relative;
+}
+
+
+.cart .container .content#cart svg {
+    padding: 10px;
+    border-radius: 50%;
+    fill: #fff;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    transition: fill .35s ease-in-out;
+}
+
+.cart .container .cart--counter#counter {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #1F201F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 2px;
+    right: 0;
+    color: #fff;
+    font-size: 12px;
+    z-index: 100;
+    margin-right: 50px;
+}
+
+
+.cart .container .content#cart svg:hover {
+    background-color: #1F201F;
+    fill: #ff6e7f;
+    /* transform: scale(1.1); */
+    transition: fill .35s ease-in-out;
 }
 
 svg {
     fill: var(--svgColor);
 }
 
-
-@media screen and (max-width: 699px) {
-    #customBody img {
-        display: none;
-    }
-
-    #customBody form {
-        width: 100%;
-    }
-
-    .smallbar {
-        max-width: 70px;
-    }
-}
 
 .notification {
     width: 500px;
@@ -959,7 +977,12 @@ svg {
     opacity: 1;
     filter: blur(0);   
     transition: all .35s ease-in-out;
-
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* width: 90%; */
 }
 
 #foreignSim .container--animated .left--tab {
@@ -971,7 +994,7 @@ svg {
 #foreignSim .container--animated .right--tab {
     position: relative;
     top: 0;
-    right: -500px;
+    /* right: -500px; */
 }
 
 #foreignSim .section--play .left--tab {
@@ -1097,16 +1120,16 @@ svg {
 
 #socials--close--button {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 15px;
+    right: 15px;
     width: 24px;
     height: 24px;
     cursor: pointer;
 }
 
 #socials--close--button:hover {
-    stroke: red;
-    fill: red;
+    stroke: #ff6e7f;
+    fill: #ff6e7f;
     stroke-width: 2.5px;
     transition: all .35s ease-in-out;
 }
@@ -1138,6 +1161,7 @@ svg {
     justify-content: center;
     transition: z-index .35s ease-in-out;
     display: none;
+    font-family: 'Roboto';
 }
 
 .item--list--show {
@@ -1178,18 +1202,239 @@ svg {
     justify-content: space-evenly;
 }
 
+.item--list--show .items--container .items--content .items {
+    width: 80%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 15px;
+    background-color: #ffffff17;
+    overflow-y: scroll;
+}
+
+.item--list--show .items--container .items--content .items::-webkit-scrollbar {
+    width: 10px;
+}
+
+.item--list--show .items--container .items--content .items::-webkit-scrollbar-track {
+    background: #777877aa;
+    border-radius: 0 0 4px 0;
+}
+
+.item--list--show .items--container .items--content .items::-webkit-scrollbar-thumb {
+    background: #ff6e7f;
+    border-radius: 4px;
+}
+
+.item--list--show .items--container .items--content .items .item {
+    width: 80%;
+    height: 35px;
+    min-height: 35px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    font-size: 1rem;
+    background-color: #cad2caa7;
+}
+
 #cart--close--button {
+    fill: #fff;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 15px;
+    right: 15px;
     width: 24px;
     height: 24px;
     cursor: pointer;
 }
 
 #cart--close--button:hover {
-    stroke: red;
-    fill: red;
+    stroke: #ff6e7f;
+    fill: #ff6e7f;
     stroke-width: 2.5px;
     transition: all .35s ease-in-out;
 }
+
+#item--close--button {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+}
+
+.item--content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.item--content svg#item--close--button {
+    fill: #fff;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.item--content svg#item--close--button:hover {
+    fill: #ff6e7f;
+    stroke: #ff6e7f;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.item--content .item--info {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.order#order {
+    width: 200px;
+    height: 50px;
+    background-color: #75abc3;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1em;
+    font-family: 'Roboto';
+}
+
+.order#order:hover {
+    background-color: #ff6e7f;
+    transition: background-color .35s ease-in-out;
+}
+
+.empty--message {
+    color: grey;
+}
+
+
+.menu--button--hidden {
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+    margin-left: 15px;
+    display: none;
+}
+
+.menu--button--hidden svg {
+    fill: #fff;
+    cursor: pointer;
+}
+
+.menu--button--hidden svg:first-child {
+    display: block;
+}
+
+.menu--button--hidden svg:last-child {
+    display: none;
+}
+
+.menu--button--show svg:first-child {
+    display: none;
+}
+
+.menu--button--show svg:last-child {
+    display: block;
+}
+
+.menu--button--hidden svg:hover {
+    fill: #ff6e7f;
+    stroke: #ff6e7f;
+}
+
+/* ! AT MEDIA SCREEN */
+@media screen and (max-width: 699px) {
+    #customBody img {
+        display: none;
+    }
+
+    #customBody form {
+        width: 100%;
+    }
+
+    .smallbar {
+        max-width: 70px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #main .welcome--page .container .content h1 {
+        font-size: 2.5rem;
+    }
+
+    #main .welcome--page .container .content h1 span {
+        font-size: 3rem;
+    }
+
+    #main .welcome--page .container .content h2.play {
+        font-size: 1.5rem;
+    }
+    
+}
+
+@media screen and (max-width: 660px) {
+
+    body #mainPage {
+        width: 100%;
+    }
+
+    .menu--button--hidden {
+        width: 25px;
+        height: 25px;
+        display: grid;
+        place-items: center;
+        margin-left: 15px;
+        display: block;
+    }
+
+    nav.navbar#navbar {
+        width: 100%;
+        height: 4rem;
+        background: #1F201F;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .section {
+        width: 100%;
+    }
+
+    .sidebar#sidebar {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: -50rem;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all .35s ease-in-out;
+    }
+
+    .sidebar#sidebar #esb {
+        display: none;
+    }
+
+    
+}
+/* ! AT MEDIA SCREEN */

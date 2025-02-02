@@ -9,12 +9,23 @@ const playText = document.querySelectorAll(".start")
 const socialsButton = document.getElementById("socials--button")
 const socialsPage = document.querySelector(".socials--page--hidden")
 const socialsCloseButton = document.getElementById("socials--close--button")
-const cartButton = document.getElementById("cart--button")
+const cartButton = document.getElementById("cartButton")
 const cartCloseButton = document.getElementById("cart--close--button")
 const itemsHidden = document.querySelector(".item--list--hidden")
+const orderButtton = document.getElementById("order")
+const menuButton =  document.querySelector(".menu--button--hidden")
 let currentPage = null
 let shrinkedPage = null
 let productNumber = 0
+let itemDummy = ` <li class="item">
+                        <div class="item--content">
+                            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="10px" height="10px" id="item--close--button" stroke="#fff" stroke-width="1"><path d="M 19.990234 2.9863281 A 1.0001 1.0001 0 0 0 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 A 1.0001 1.0001 0 0 0 3.9902344 2.9902344 A 1.0001 1.0001 0 0 0 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 A 1.0001 1.0001 0 1 0 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 A 1.0001 1.0001 0 1 0 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 A 1.0001 1.0001 0 0 0 19.990234 2.9863281 z"/></svg>
+                            <div class="item--info">
+                                <span class="item--name"></span>
+                                <span class="item--price"></span>
+                            </div>
+                        </div>
+                    </li>`
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         console.log(entry)
@@ -204,7 +215,7 @@ socialsCloseButton.addEventListener("click", () => {
     socialsPage.classList.remove("socials--page--show")
 })
 
-cartButton.addEventListener("click", () => {
+cart.addEventListener("click", () => {
     itemsHidden.classList.add("item--list--show")
 })
 
@@ -212,6 +223,58 @@ cartCloseButton.addEventListener("click", () => {
     itemsHidden.classList.remove("item--list--show")
 })
 
+
+orderButtton.addEventListener("click", () => {
+    if (cartList.length === 0) {
+        alert("No items have been selected!")
+    }
+})
+
+window.addEventListener('resize', function() {
+    if (window.innerWidth <= 660) {
+        sideBar.classList.add("sidebar")
+        sideBar.classList.remove("smallbar")
+    } else {
+        sideBar.classList.remove("sidebar")
+        sideBar.classList.add("smallbar")
+    }
+});
+
+// Initial check
+window.dispatchEvent(new Event('resize'));
+let menuShowing = false
+menuButton.addEventListener("click", () => {
+    if (menuShowing) {
+        document.getElementById("sidebar").style.top = "-50rem"
+        menuButton.classList.remove("menu--button--show")
+        menuShowing = false
+    }   else {
+        document.getElementById("sidebar").style.top = "4rem"
+        menuButton.classList.add("menu--button--show")
+        menuShowing = true
+    }
+})
+
+for (let index = 0; index < expandedLinks.length; index++) {
+    expandedLinks[index].addEventListener("click", () => {
+        if (menuShowing) {
+            document.getElementById("sidebar").style.top = "-50rem"
+            menuButton.classList.remove("menu--button--show")
+            sideBar.classList.add("sidebar")
+            sideBar.classList.remove("smallbar")
+            menuShowing = false
+        }
+    })
+}
+
+
+let resizeTimeout;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+        location.reload();
+    }, 500); // Adjust the delay as needed
+});
 
 // addButton.addEventListener("click", () => {
 //     addProduct("Moii")
