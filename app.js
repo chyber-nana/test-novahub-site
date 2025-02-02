@@ -243,7 +243,7 @@ window.dispatchEvent(new Event('resize'));
 let menuShowing = false
 menuButton.addEventListener("click", () => {
     if (menuShowing) {
-        document.getElementById("sidebar").style.top = "-50rem"
+        document.getElementById("sidebar").style.top = "-100rem"
         menuButton.classList.remove("menu--button--show")
         menuShowing = false
     }   else {
@@ -256,7 +256,7 @@ menuButton.addEventListener("click", () => {
 for (let index = 0; index < expandedLinks.length; index++) {
     expandedLinks[index].addEventListener("click", () => {
         if (menuShowing) {
-            document.getElementById("sidebar").style.top = "-50rem"
+            document.getElementById("sidebar").style.top = "-100rem"
             menuButton.classList.remove("menu--button--show")
             sideBar.classList.add("sidebar")
             sideBar.classList.remove("smallbar")
@@ -271,7 +271,7 @@ window.addEventListener('resize', function() {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(function() {
         location.reload();
-    }, 500); // Adjust the delay as needed
+    }, 5); // Adjust the delay as needed
 });
 
 // addButton.addEventListener("click", () => {
