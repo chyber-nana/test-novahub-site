@@ -37,23 +37,6 @@ const observer = new IntersectionObserver((entries) => {
 
 const section = document.querySelectorAll(".container--animated")
 section.forEach((section) => observer.observe(section));
-let cartList = []
-
-
-const foreignSims = ["Australia SIM Cards",
-                "Canada SIM Cards",
-                "France SIM Cards",
-                "Germany SIM Cards",
-                "Lithuania SIM Cards",
-                "Morocco SIM Cards",
-                "Netherlands SIM Cards",
-                "Poland SIM Cards",
-                "Spain SIM Cards",
-                "Sweden SIM Cards",
-                "Switzerland SIM Cards",
-                "Unites Kingdom SIM Cards",
-                "Ukraine SIM Cards",
-                "United States SIM Cards"]
 
 let isExpand = false
 const expandOrShrink = () => {
@@ -97,46 +80,6 @@ const updateLinkColor = (page, shrinkPage)  => {
 expandShrinkButton.addEventListener("click", () => {
     expandOrShrink()
 })
-
-
-const updateCart = (list) => {
-    if (list.length === 0) {
-        cart.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px"><path d="M 1.25 3 A 1.250125 1.250125 0 1 0 1.25 5.5 L 1.796875 5.5 C 1.9214018 5.5 2.0141793 5.574019 2.0410156 5.6953125 L 4.4316406 16.455078 C 4.760148 17.935789 6.0875402 19 7.6035156 19 L 18.75 19 A 1.250125 1.250125 0 1 0 18.75 16.5 L 7.6035156 16.5 C 7.2454911 16.5 6.9505395 16.263353 6.8730469 15.914062 A 1.250125 1.250125 0 0 0 6.8730469 15.912109 L 6.6699219 15 L 18.328125 15 C 19.856899 15 21.19278 13.918188 21.509766 12.423828 L 22.972656 5.5097656 A 1.250125 1.250125 0 0 0 21.75 4 L 3.9082031 4 C 3.3967732 3.3868132 2.6317903 3 1.796875 3 L 1.25 3 z M 4.7792969 6.5 L 20.207031 6.5 L 19.0625 11.904297 C 18.987486 12.257937 18.689351 12.5 18.328125 12.5 L 6.1132812 12.5 L 4.7792969 6.5 z M 8.5 20 A 1.5 1.5 0 0 0 8.5 23 A 1.5 1.5 0 0 0 8.5 20 z M 17.5 20 A 1.5 1.5 0 0 0 17.5 23 A 1.5 1.5 0 0 0 17.5 20 z"/></svg>`
-    } else {
-        document.getElementById("productsContent").innerHTML = ""
-        // document.getElementById("info").innerHTML = "none"
-        for (let i = 0; i < list.length; i++) {
-            document.getElementById("productsContent").innerHTML += list[i]
-        }
-    }
-}
-updateCart(cartList)
-
-const addProduct = (product) => {
-    productNumber += 1
-    if (cartList.length === 0) {
-        cartList.push(`<div class="dummy--product">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" id="cancelButton"><path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
-            <div class="product--name">${product}</div>
-        </div>`)
-        cart.innerHTML = `<div id="productsContent"></div>
-        <button id="order">Order</button>`
-        
-        
-    } else {
-        cartList.push(`<div class="dummy--product">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" id="cancelButton"><path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
-            <div class="product--name">${product}</div></div>`)
-        }
-        
-    updateCart(cartList)
-}
-
-const removeProduct = (product) => {
-    productNumber -= 1
-    cartList.splice(product, 1)
-    updateCart(cartList)
-}
 
 for (let index = 0; index < expandedLinks.length; index++) {
     expandedLinks[index].addEventListener("click", () => {
@@ -185,8 +128,8 @@ for (let i = 0; i < removeButtons.length; i++) {
 }
 
 
-text = 0
-t = 5000
+let text = 0;
+let t = 5000;
 
 const animateText = (infoText) => {
     if (text < infoText.length && text !== 0)  {
@@ -273,7 +216,122 @@ window.addEventListener('resize', function() {
         location.reload();
     }, 5); // Adjust the delay as needed
 });
+let data = []
+let yourData = {"data": data}
 
-// addButton.addEventListener("click", () => {
-//     addProduct("Moii")
-// })
+let storedData = localStorage.getItem("productData");
+if (storedData) {
+    yourData.data = JSON.parse(storedData);
+    initializeProducts();
+    // initializeCart();
+} else {
+    fetch("https://sheetdb.io/api/v1/5ayhpj0thqk3w")
+        .then(response => response.json())
+        .then(data => {
+            yourData.data = data;
+            localStorage.setItem("productData", JSON.stringify(data));
+            initializeProducts();
+            // initializeCart();
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
+
+function initializeProducts() {
+    for (let product = 0; product < yourData.data.length; product++) {
+        let productData = yourData.data[product]
+        if (productData.ItemCategory === 'Foreign Sim Cards') {
+            let newItem = document.createElement("li")
+            newItem.innerHTML = `<li class="product">
+                                        <div id="content">
+                                            <img src="./Images/Countries/australia.jpeg" alt="Australia flag">
+                                            <div class="control">
+                                                <span class="item--name">${productData.ItemName}</span>
+                                                <p class="item--price">₵${productData.Price}</p>
+                                                <p class="${productData.InStock ? "in--stock" : "out--stock"}">${productData.Status}</p>
+                                                <span class="add--area" onclick="addToCart()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>Add to Cart</span>
+                                            </div>
+                                        </div>
+        
+                                    </li>`
+            document.querySelector(".products").appendChild(newItem)
+        } else if (productData.ItemCategory === "Gift Cards") {
+            let newItem = document.createElement("li")
+            newItem.innerHTML = `<li class="product">
+                                        <div id="content">
+                                            <img src="./Images/Countries/australia.jpeg" alt="Australia flag">
+                                            <div class="control">
+                                                <span class="item--name">${productData.ItemName}</span>
+                                                <p class="item--price">₵${productData.Price}</p>
+                                                <p class="${productData.InStock ? "in-stock" : "out-stock"}}">${productData.Status}</p>
+                                                <span class="add--area" onclick="addToCart()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>Add to Cart</span>
+                                            </div>
+                                        </div>
+        
+                                    </li>`
+            document.querySelector(".products--giftcards").appendChild(newItem)
+
+        } else if (productData.ItemCategory === "Telco Pre-paid cards") {
+            let newItem = document.createElement("li")
+            newItem.innerHTML = `<li class="product">
+                                        <div id="content">
+                                            <img src="./Images/Countries/australia.jpeg" alt="Australia flag">
+                                            <div class="control">
+                                                <span class="item--name">${productData.ItemName}</span>
+                                                <p class="item--price">₵${productData.Price}</p>
+                                                <p class="${productData.InStock ? "in-stock" : "out-stock"}}">${productData.Status}</p>
+                                                <span class="add--area" onclick="addToCart()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>Add to Cart</span>
+                                            </div>
+                                        </div>
+        
+                                    </li>`
+            document.querySelector(".products--telco").appendChild(newItem)
+        } else if (productData.ItemCategory === "Subscriptions") {
+            let newItem = document.createElement("li")
+            newItem.innerHTML = `<li class="product">
+                                        <div id="content">
+                                            <img src="./Images/Countries/australia.jpeg" alt="Australia flag">
+                                            <div class="control">
+                                                <span class="item--name">${productData.ItemName}</span>
+                                                <p class="item--price">₵${productData.Price}</p>
+                                                <p class="${productData.InStock ? "in-stock" : "out-stock"}}">${productData.Status}</p>
+                                                <span class="add--area" onclick="addToCart()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>Add to Cart</span>
+                                            </div>
+                                        </div>
+        
+                                    </li>`
+            document.querySelector(".products--subscriptions").appendChild(newItem)
+        } else if (productData.ItemCategory === "Virtual Credit Cards") {
+            let newItem = document.createElement("li")
+            newItem.innerHTML = `<li class="product">
+                                        <div id="content">
+                                            <img src="./Images/Countries/australia.jpeg" alt="Australia flag">
+                                            <div class="control">
+                                                <span class="item--name">${productData.ItemName}</span>
+                                                <p class="item--price">₵${productData.Price}</p>
+                                                <p class="${productData.InStock ? "in-stock" : "out-stock"}}">${productData.Status}</p>
+                                                <span class="add--area" onclick="addToCart()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>Add to Cart</span>
+                                            </div>
+                                        </div>
+        
+                                    </li>`
+            document.querySelector(".products--virtual").appendChild(newItem)
+        } else if (productData.ItemCategory === "Payment Cards") {
+            let newItem = document.createElement("li")
+            newItem.innerHTML = `<li class="product">
+                                        <div id="content">
+                                            <img src="./Images/Countries/australia.jpeg" alt="Australia flag">
+                                            <div class="control">
+                                                <span class="item--name">${productData.ItemName}</span>
+                                                <p class="item--price">₵${productData.Price}</p>
+                                                <p class="${productData.InStock ? "in-stock" : "out-stock"}}">${productData.Status}</p>
+                                                <span class="add--area" onclick="addToCart()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>Add to Cart</span>
+                                            </div>
+                                        </div>
+        
+                                    </li>`
+            document.querySelector(".products--payment").appendChild(newItem)
+        }
+    }
+}
+
+

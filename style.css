@@ -566,6 +566,8 @@ h1 {
     box-shadow: 0 0 15px rgba(255, 255, 255, .5);
 }
 
+
+
 .container--animated {
     height: 100%;
     width: 100%;
@@ -675,8 +677,8 @@ button[type="submit"] {
 }
 
 
-#foreignSim {
-    margin-top: 4rem;
+.section {
+    /* margin-top: 4rem; */
     width: 100%;
     /* height: 100vh; */
     display: flex;
@@ -685,7 +687,7 @@ button[type="submit"] {
     justify-content: space-between;
 }
 
-#foreignSim .images {
+.section .images {
     width: 100%;
     height: 100px;
     display: flex;
@@ -695,13 +697,13 @@ button[type="submit"] {
     background-color: #909090c7;
 }
 
-#foreignSim .images img {
+.section .images img {
     width: 150px;
     height: 100%;
     object-fit: contain;
 }
 
-#foreignSim .container {
+.section .container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -709,32 +711,69 @@ button[type="submit"] {
     justify-content: center;
 }
 
-#foreignSim .container .content {
+.section .container .content {
     width: 100%;
-    height: 100%;
+    border-radius: 12px;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
 
-#foreignSim .container .content .products {
-    width: 100%;
+.section .container .content .products {
+    width: 70%;
     height: 100%;
     display: grid;
     padding: 0;
     margin: 0;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-columns: 20% 20% 20% 20%;
+    grid-template-rows: 100% 100% 100% 100% 100% 100%;
     align-items: center;
     justify-content: space-evenly;
     place-items: center;
     font-size: 1rem;
+    background-color: #ffffff50;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 15px;
+}
+
+#gift--cards {
+    width: 70%;
+    height: 100%;
+    display: grid;
+    padding: 0;
+    margin: 0;
+    grid-template-columns: 20% 20% 20% 20%;
+    grid-template-rows: 100% 100% 100% 100% 100% 100% 100% 100% 100% 100% 100% 100% 100% 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    place-items: center;
+    font-size: 1rem;
+    background-color: #ffffff50;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 15px;
+}
+
+.section .container .content .products::-webkit-scrollbar {
+    width: 10px;
+}
+
+.section .container .content .products::-webkit-scrollbar-track {
+    background: #777877aa;
+    border-radius: 0 15px 15px 0;
+}
+
+.section .container .content .products::-webkit-scrollbar-thumb {
+    background: #ff6e7f;
+    border-radius: 15px;
 }
 
 .products li {
     width: 100%;
-    height: 100%;
+    height: 80%;
     transition: all .35s ease-in-out;
     display: flex;
     flex-direction: column;
@@ -743,15 +782,15 @@ button[type="submit"] {
 }
 
 .products li div#content {
-    width: 80%;
-    height: 100%;
+    width: 100%;
+    height: 90%;
     /* background-color: #12c2e9; */
     /* height: 180px; */
     /* border: 1px solid; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     transition: all .35s ease-in-out;
     border-radius: 15px;
 }
@@ -766,12 +805,12 @@ button[type="submit"] {
 }
 
 .products li #content:hover {
-    background-color: rgba(135, 133, 133, 0.217);
+    background-color: #1f201f5d;
     transition: all .35s ease-in-out;
 }
 
 .products li #content:hover img {
-    transform: scale(1.1);
+    transform: scale(1.01);
     transition: transform .35s ease-in-out;
 }
 
@@ -780,22 +819,70 @@ button[type="submit"] {
     visibility: visible;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
     transition: all .35s ease-in-out;
+    border-radius: 0 0 15px 15px;
+    justify-content: space-between;
+}
+
+.products li #content:hover .control .add--area {
+    max-height: 50px;
+    min-height: 25px;
+    background-color: #ff6e7f;
+    cursor: pointer;
+    border-radius: 0 0 15px 15px;
+    transition: background-color .35s ease-in-out;
 }
 
 .products li .control {
     width: 100%;
-    height: 40%;
+    height: 100%;
     text-align: center;
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
     transition: all .35s ease-in-out;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+}
+
+#searchBar {
+    width: 100%;
+    height: 2rem;
+    border: none;
+    border-radius: 20px;
+    text-indent: 12px;
+}
+
+.search--area {
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.item--name {
+    font-size: 1rem;
+    font-family: "Poppins";
+    text-align: center;
+    /* white-space: nowrap; */
+}
+
+.control p.item--price {
+    font-size: 1rem;
+    font-family: "Poppins";
+    text-align: center;
+    margin: 0;
+}
+
+.control p.in--stock {
+    color: #73e473;
+    margin: 0;
+}
+.control p.out--stock {
+    color: #e47373;
+    margin: 0;
 }
 
 
@@ -806,6 +893,7 @@ button[type="submit"] {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    max-height: 50px;
 }
 
 .add--area svg {
@@ -928,7 +1016,7 @@ svg {
     fill: #adff2f;
 }
 
-#foreignSim .content--info {
+.section .content--info {
     width: 100%;
     height: 70%;
     background-color: transparent;
@@ -938,7 +1026,7 @@ svg {
     position: relative;
 }
 
-#foreignSim .content--info .left--tab {
+.section .content--info .left--tab {
     width: 50%;
     height: 100%;
     display: flex;
@@ -947,16 +1035,16 @@ svg {
     justify-content: space-evenly;
 }
 
-#foreignSim .content--info .right--tab {
-    width: 50%;
+.section .content--info .right--tab {
+    width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
 }
 
-#foreignSim .content--info h1 {
+.section .content--info span.foreign--text {
     font-size: 2rem;
     display: flex;
     flex-direction: column;
@@ -965,18 +1053,21 @@ svg {
     text-align: center;
 }
 
-#foreignSim .content--info h1 span {
+.section .content--info h1 span {
     font-size: 1.2rem;
 }
 
-#foreignSim .container--animated {
+.section .container--animated {
     opacity: 0;
     transform: translateY(0);
     filter: blur(10px);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#foreignSim .section--play {
+.section .section--play {
     opacity: 1;
     filter: blur(0);   
     transition: all .35s ease-in-out;
@@ -988,25 +1079,25 @@ svg {
     /* width: 90%; */
 }
 
-#foreignSim .container--animated .left--tab {
+.section .container--animated .left--tab {
     position: relative;
     top: 0;
     left: -500px;
 }
 
-#foreignSim .container--animated .right--tab {
+.section .container--animated .right--tab {
     position: relative;
     top: 0;
     /* right: -500px; */
 }
 
-#foreignSim .section--play .left--tab {
+.section .section--play .left--tab {
     position: relative;
     left: 0;
     transition: all .35s ease-in-out;
 }
 
-#foreignSim .section--play .right--tab {
+.section .section--play .right--tab {
     position: relative;
     right: 0;
     transition: all .35s ease-in-out;
