@@ -654,7 +654,7 @@ label {
     font-size: 12px;
 }
 
-button[type="submit"] {
+#customBody button[type="submit"] {
     width: 40%;
     height: 12%;
     border-radius: 17px;
@@ -772,6 +772,7 @@ button[type="submit"] {
 }
 
 .products li {
+    cursor: pointer;
     width: 100%;
     height: 80%;
     transition: all .35s ease-in-out;
@@ -848,18 +849,109 @@ button[type="submit"] {
 
 #searchBar {
     width: 100%;
-    height: 2rem;
+    height: 3rem;
     border: none;
     border-radius: 20px;
     text-indent: 12px;
+    background-color: #fff;
+    color: #000;
+    font-size: 1rem;
+    transition: border-color .35s ease-in-out, box-shadow .35s ease-in-out;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.647);
+}
+
+#searchBar:focus {
+    outline: none;
+    border-color: #f64559;
+    box-shadow: 0 4px 20px rgba(245, 69, 89, 0.853);
+}
+
+
+#searchButton {
+    margin-left: 12px;
+    display: grid;
+    place-items: center;
+    width: 2.2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 20px;
+    background-color: #ff6e7f;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color .35s ease-in-out;
+}
+
+#searchButton:hover {
+    background-color: #f64559;
+    transform: scale(1.05);
+    transition: all .35s ease-in-out;
+}
+
+#searchButton svg {
+    width: 75%;
+    height: 75%;
+    fill: #fff;
 }
 
 .search--area {
+    width: 50%;
     height: 10%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+ul.searched--list {
+    position: absolute;
+    overflow-y: scroll;
+    top: -20px;
+    width: 100%;
+    height: fit-content;
+    max-height: 10rem;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #171717;
+}
+
+ul.searched--list::-webkit-scrollbar {
+    width: 5px;
+    background-color: #fff;
+}
+
+ul.searched--list::-webkit-scrollbar-thumb {
+    background-color: #ff6e7f;
+    border-radius: 0 5px 5px 0;
+}
+
+ul.searched--list::-webkit-scrollbar-track {
+    background-color: #171717;
+}   
+
+li.searched--item {
+    z-index: 100;
+    color: #fff;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    /* background-color: #ffffff7e; */
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color .35s ease-in-out;
+}
+
+li.searched--item:hover {
+    background-color: #ff6e7f;
+    color: #fff;
+    transition: background-color .35s ease-in-out;
 }
 
 .item--name {
@@ -901,25 +993,30 @@ button[type="submit"] {
     fill: white;
 }
 
+.add--area:focus {
+    background-color: #ff6e7f;
+}
+
 
 .cart {
-    width: 100%;
-    height: 50px;
-    max-height: 70px;
+    width: 80%;
+    height: 100px;
+    /* max-height: 70px; */
     background-color: transparent;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     border-radius: 12px;
     color: grey;
     text-align: center;
     font-family: "Poppins";
+    align-self: flex-end;
 }
 
 
 
 .cart .container#cart--container {
-    width: 100%;
+    width: 50%;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -960,7 +1057,7 @@ button[type="submit"] {
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 2px;
+    top: 20px;
     right: 0;
     color: #fff;
     font-size: 12px;
@@ -1326,15 +1423,44 @@ svg {
 
 .item--list--show .items--container .items--content .items .item {
     width: 80%;
-    height: 35px;
+    height: fit-content;
     min-height: 35px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     text-align: center;
     font-size: 1rem;
     background-color: #cad2caa7;
+}
+
+.items--buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.items--buttons button {
+    width: 100px;
+    height: 50px;
+    /* background-color: #75abc3; */
+    /* border: none; */
+    border-radius: 20px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1em;
+    font-family: 'Roboto';
+}   
+
+
+.item div:last-child {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
 }
 
 #cart--close--button {
@@ -1411,6 +1537,23 @@ svg {
     transition: background-color .35s ease-in-out;
 }
 
+.clear--cart {
+    width: 200px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid #75abc3;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1em;
+    font-family: 'Roboto';
+}
+
+.clear--cart:hover {
+    background-color: #75abc3;
+    transition: background-color .35s ease-in-out;
+}
+
 .empty--message {
     color: grey;
 }
@@ -1449,6 +1592,135 @@ svg {
 .menu--button--hidden svg:hover {
     fill: #ff6e7f;
     stroke: #ff6e7f;
+}
+
+.selected--item--page {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: #3b3d3d93;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: z-index .35s ease-in-out;
+    display: none;
+    font-family: 'Roboto';
+}
+
+.selected--item--page--show {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: #3b3d3d93;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: z-index .35s ease-in-out;
+    font-family: 'Roboto';
+}
+
+.selected--item--page .selected--container {
+    width: 45%;
+    max-width: 1000px;
+    min-width: 325px;
+    height: 70%;
+    position: absolute;
+    top: calc(50vh - currentHeight/2);
+    left: calc(50vw - currentWidth/2);
+    background-color: #1F201F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+}
+
+.selected--item--page .selected--container .selected--content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.selected--item--page .selected--container .selected--content .texts {
+    width: 80%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    gap: 15px;
+    background-color: #ffffff17;
+}
+
+.selected--item--page .selected--container .selected--content .selected--items--buttons {
+    width: 80%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 15px;
+    /* background-color: #ffffff17; */
+}
+
+.selected--item--page .selected--container .selected--content .selected--items--buttons button {
+    width: 100px;
+    height: 50px;
+    background-color: #75abc3;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1em;
+    font-family: 'Roboto';
+}
+
+.selected--item--page .selected--container .selected--content .selected--items--buttons button:hover {
+    background-color: #ff6e7f;
+    transition: background-color .35s ease-in-out;
+}
+
+#selected--close--button {
+    background-color: transparent;
+    border: 2px solid #75abc3;
+    transition: all .35s ease-in-out;
+}
+
+#selected--close--button:hover {
+    background-color: #75abc3;
+    border: 2px solid #75abc3;
+    transition: all .35s ease-in-out;
+}
+
+img#selected--item--image {
+    width: 100px;
+    height: 75px;
+}
+
+#removeButton {
+    fill: #fff;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    stroke: #fff;
+}
+
+#removeButton:hover {
+    fill: #ff6e7f;
+    stroke: #ff6e7f;
+    transition: all .35s ease-in-out;
 }
 
 /* ! AT MEDIA SCREEN */
