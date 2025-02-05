@@ -21,53 +21,32 @@ const searchedList = document.getElementById("searchedList")
 const selectedItemsPage = document.querySelector(".selected--item--page")
 const clearCart = document.querySelector(".clear--cart")
 const removeButton = document.querySelector("#removeButton")
+const preloader = document.getElementById("preloader")
 let currentPage = null
 let shrinkedPage = null
 let productNumber = 0
 let cartList = []
 let searchList = []
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    preloader.style.display = "none";
+});
+
+window.addEventListener("load", () => {
+    preloader.style.display = "none";
+});
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         console.log(entry)
         if (entry.isIntersecting) {
             entry.target.classList.add("section--play")
+        } else {
+            entry.target.classList.remove("section--play")
+
         }
     });
-})
-
-searchBar.addEventListener("keyup", () => {
-    if (searchBar.value === "" || searchBar.value === " ") {
-        searchedList.style.display = "none";
-        searchedList.innerHTML = "";
-    } else {
-        let searchValue = searchBar.value.toLowerCase();
-        searchedList.innerHTML = "";
-        let found = false;
-        for (let i = 0; i < yourData.data.length; i++) {
-            let productName = yourData.data[i].ItemName.toLowerCase();
-            if (productName.includes(searchValue)) {
-                found = true;
-                let listItem = document.createElement("li");
-                listItem.className = "searched--item";
-                let itemName = document.createElement("span");
-                itemName.className = "item--name";
-                itemName.textContent = yourData.data[i].ItemName;
-                let itemPrice = document.createElement("span");
-                itemPrice.className = "item--price";
-                itemPrice.textContent = `₵${yourData.data[i].Price}`;
-                listItem.appendChild(itemName);
-                listItem.appendChild(itemPrice);
-                listItem.addEventListener("click", () => {
-                    searchBar.value = listItem.textContent;
-                    searchedList.style.display = "none";
-                    selectItem(listItem);
-                });
-                searchedList.appendChild(listItem);
-            }
-        }
-        searchedList.style.display = found ? "flex" : "none";
-    }
 })
 
 const section = document.querySelectorAll(".container--animated")
@@ -561,3 +540,36 @@ if (numberOfItems > 0) {
     counterDisplay.innerHTML = "0"
 }
 
+searchBar.addEventListener("keyup", () => {
+    if (searchBar.value === "" || searchBar.value === " ") {
+        searchedList.style.display = "none";
+        searchedList.innerHTML = "";
+    } else {
+        let searchValue = searchBar.value.toLowerCase();
+        searchedList.innerHTML = "";
+        let found = false;
+        for (let i = 0; i < yourData.data.length; i++) {
+            let productName = yourData.data[i].ItemName.toLowerCase();
+            if (productName.includes(searchValue)) {
+                found = true;
+                let listItem = document.createElement("li");
+                listItem.className = "searched--item";
+                let itemName = document.createElement("span");
+                itemName.className = "item--name";
+                itemName.textContent = yourData.data[i].ItemName;
+                let itemPrice = document.createElement("span");
+                itemPrice.className = "item--price";
+                itemPrice.textContent = `₵${yourData.data[i].Price}`;
+                listItem.appendChild(itemName);
+                listItem.appendChild(itemPrice);
+                listItem.addEventListener("click", () => {
+                    searchBar.value = itemName.textContent;
+                    searchedList.style.display = "none";
+                    selectItem(listItem);
+                });
+                searchedList.appendChild(listItem);
+            }
+        }
+        searchedList.style.display = found ? "flex" : "none";
+    }
+})
