@@ -28,7 +28,6 @@ let productNumber = 0
 let cartList = []
 let searchList = []
 
-
 document.addEventListener("DOMContentLoaded", () => {
     preloader.style.display = "none";
 });
@@ -377,7 +376,7 @@ function initializeProducts() {
             let newItem = document.createElement("li")
             newItem.innerHTML = `<li class="product">
                                         <div id="content">
-                                            <img src="./Images/Countries/${imageVerify(productData.ItemName)}" alt="${productData.ItemName.split(" ")[0]} flag">
+                                            <img src="./Images/Imagesss/${productData.ItemName}.png" alt="${productData.ItemName.split(" ")[0]} flag">
                                             <div class="control">
                                                 <span class="item--name">${productData.ItemName}</span>
                                                 <p class="item--price">₵${productData.Price}</p>
@@ -392,7 +391,7 @@ function initializeProducts() {
             let newItem = document.createElement("li")
             newItem.innerHTML = `<li class="product">
                                         <div id="content">
-                                            <img src="./Images/Countries/australia.jpeg" alt="Australia flag">
+                                            <img src="./Images/Imagesss/${productData.ItemName}.png" alt="${productData.ItemName.split(" ")[0]} flag">
                                             <div class="control">
                                                 <span class="item--name">${productData.ItemName}</span>
                                                 <p class="item--price">₵${productData.Price}</p>
@@ -403,12 +402,11 @@ function initializeProducts() {
         
                                     </li>`
             document.querySelector(".products--giftcards").appendChild(newItem)
-
         } else if (productData.ItemCategory === "Telco Pre-paid cards") {
             let newItem = document.createElement("li")
             newItem.innerHTML = `<li class="product">
                                         <div id="content">
-                                            <img src="./Images/Countries/australia.jpeg" alt="Australia flag">
+                                            <img src="./Images/Imagesss/${productData.ItemName}.png" alt="${productData.ItemName.split(" ")[0]} flag">
                                             <div class="control">
                                                 <span class="item--name">${productData.ItemName}</span>
                                                 <p class="item--price">₵${productData.Price}</p>
@@ -419,11 +417,12 @@ function initializeProducts() {
         
                                     </li>`
             document.querySelector(".products--telco").appendChild(newItem)
+
         } else if (productData.ItemCategory === "Subscriptions") {
             let newItem = document.createElement("li")
             newItem.innerHTML = `<li class="product">
                                         <div id="content">
-                                            <img src="./Images/Countries/australia.jpeg" alt="Australia flag">
+                                            <img src="./Images/Imagesss/${productData.ItemName}.png" alt="${productData.ItemName.split(" ")[0]} flag">
                                             <div class="control">
                                                 <span class="item--name">${productData.ItemName}</span>
                                                 <p class="item--price">₵${productData.Price}</p>
@@ -434,11 +433,12 @@ function initializeProducts() {
         
                                     </li>`
             document.querySelector(".products--subscriptions").appendChild(newItem)
+
         } else if (productData.ItemCategory === "Virtual Credit Cards") {
             let newItem = document.createElement("li")
             newItem.innerHTML = `<li class="product">
                                         <div id="content">
-                                            <img src="./Images/Countries/australia.jpeg" alt="Australia flag">
+                                            <img src="./Images/Imagesss/${productData.ItemName}.png" alt="${productData.ItemName.split(" ")[0]} flag">
                                             <div class="control">
                                                 <span class="item--name">${productData.ItemName}</span>
                                                 <p class="item--price">₵${productData.Price}</p>
@@ -453,7 +453,7 @@ function initializeProducts() {
             let newItem = document.createElement("li")
             newItem.innerHTML = `<li class="product">
                                         <div id="content">
-                                            <img src="./Images/Countries/australia.jpeg" alt="Australia flag">
+                                            <img src="./Images/Imagesss/${productData.ItemName}.png" alt="${productData.ItemName.split(" ")[0]} flag">
                                             <div class="control">
                                                 <span class="item--name">${productData.ItemName}</span>
                                                 <p class="item--price">₵${productData.Price}</p>
@@ -477,7 +477,7 @@ const selectItem = (productElement) => {
     let productData = yourData.data.find(item => item.ItemName === productElement.querySelector(".item--name").textContent);
     
     selectedItemsPage.getElementsByClassName("texts")[0].innerHTML = `
-        <img src="./Images/Countries/${imageVerify(productData.ItemName)}" alt="${productData.ItemName.split(" ")[0]} flag" id="selected--item--image">
+        <img src="./Images/Imagesss/${productData.ItemName}.png" alt="${productData.ItemName.split(" ")[0]} flag" id="selected--item--image">
         <h1 class="selected--item--name">
         ${productElement.querySelector(".item--name").textContent}
         </h1>
@@ -573,3 +573,6 @@ searchBar.addEventListener("keyup", () => {
         searchedList.style.display = found ? "flex" : "none";
     }
 })
+
+
+
