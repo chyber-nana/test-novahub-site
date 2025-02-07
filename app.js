@@ -473,6 +473,8 @@ const hideSelection = () => {
     selectedItemsPage.classList.remove("selected--item--page--show")
 }
 
+
+
 const selectItem = (productElement) => {
     let productData = yourData.data.find(item => item.ItemName === productElement.querySelector(".item--name").textContent);
     
