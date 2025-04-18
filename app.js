@@ -2,7 +2,7 @@ const expandShrinkButton = document.getElementById("esb")
 const sideBar = document.getElementById("sidebar")
 const expandedLinks = document.getElementById("product--links").getElementsByTagName("li")
 const shrinkedLinks = document.getElementById("shrinked-product--links").getElementsByTagName("li")
-const cart = document.getElementById("cart")
+const cart = document.querySelectorAll("#cart")
 const foreignPageAddButtons = document.querySelectorAll("#foreign--add")
 const notificationPopup = document.querySelector(".notification")
 const playText = document.querySelectorAll(".start")
@@ -15,7 +15,7 @@ const itemsHidden = document.querySelector(".item--list--hidden")
 const orderButtton = document.getElementById("order")
 const itemList = document.querySelector(".items")
 const menuButton =  document.querySelector(".menu--button--hidden")
-const counterDisplay = document.getElementById("counter")
+const counterDisplay = document.querySelectorAll("#counter")
 const searchBar = document.getElementById("searchBar")
 const searchedList = document.getElementById("searchedList")
 const selectedItemsPage = document.querySelector(".selected--item--page")
@@ -169,8 +169,10 @@ socialsCloseButton.addEventListener("click", () => {
     socialsPage.classList.remove("socials--page--show")
 })
 
-cart.addEventListener("click", () => {
-    itemsHidden.classList.add("item--list--show")
+cart.forEach((cart) => {
+    cart.addEventListener("click", () => {
+        itemsHidden.classList.add("item--list--show")
+    })
 })
 
 cartCloseButton.addEventListener("click", () => {
@@ -288,11 +290,16 @@ if (removeButton) {
 const updateCounterDisplay = () => {
     let numberOfItems = itemList.getElementsByTagName("li").length;
     if (numberOfItems > 0) {
-        counterDisplay.style.background = "red";
-        counterDisplay.textContent = numberOfItems;
+        counterDisplay.forEach((counter) => {
+            counter.style.background = "red";
+            counter.textContent = numberOfItems;
+
+        })
     } else {
-        counterDisplay.style.background = "#1F201F";
-        counterDisplay.textContent = "0";
+        counterDisplay.forEach((counter) => {
+            counter.style.background = "#1F201F";
+            counter.textContent = "0";
+        })
     }
 };
 
@@ -535,11 +542,16 @@ for (let j = 0; j < searchedList.length; j++) {
 
 let numberOfItems= itemList.getElementsByTagName("li").length
 if (numberOfItems > 0) {
-    counterDisplay.style.background = "red"
-    counterDisplay.innerHTML = numberOfItems
+    counterDisplay.forEach((counter) => {
+        counter.style.background = "red";
+        counter.textContent = numberOfItems;
+
+    })
 } else {
-    counterDisplay.style.background = "#1F201F"
-    counterDisplay.innerHTML = "0"
+    counterDisplay.forEach((counter) => {
+        counter.style.background = "#1F201F";
+        counter.textContent = "0";
+    })
 }
 
 searchBar.addEventListener("keyup", () => {
